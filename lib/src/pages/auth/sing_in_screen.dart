@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/auth/sing_up_screen.dart';
-import 'package:greengrocer/src/auth/widget/custom_divider.dart';
-import 'package:greengrocer/src/auth/widget/custom_text_field.dart';
-import 'package:greengrocer/src/auth/widget/slide_category_title.dart';
-import 'package:greengrocer/src/base/base_screen.dart';
+import 'package:greengrocer/src/pages/auth/sing_up_screen.dart';
+import 'package:greengrocer/src/pages/auth/widget/custom_divider.dart';
+import 'package:greengrocer/src/pages/auth/widget/custom_text_field.dart';
+import 'package:greengrocer/src/pages/auth/widget/slide_category_title.dart';
 
-import '../config/custom_colors.dart';
+import '../../config/custom_colors.dart';
+import '../base/base_screen.dart';
+
+
 
 class SingInScreen extends StatelessWidget {
   const SingInScreen({Key? key}) : super(key: key);
