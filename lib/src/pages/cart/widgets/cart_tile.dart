@@ -4,43 +4,56 @@ import 'package:greengrocer/src/models/cart_item_model.dart';
 import 'package:greengrocer/src/services/utils_services.dart';
 import 'package:greengrocer/src/widgets/quantity_widget.dart';
 
-class CartTile extends StatelessWidget {
+class CartTile extends StatefulWidget {
   final CartItemModel cartItem;
+  final Function(CartItemModel) remove;
 
-  CartTile({Key? key, required this.cartItem}) : super(key: key);
-  
+  const CartTile({Key? key, required this.cartItem, required this.remove})
+      : super(key: key);
+
+  @override
+  State<CartTile> createState() => _CartTileState();
+}
+
+class _CartTileState extends State<CartTile> {
   final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16)
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: ListTile(
         leading: Image.asset(
-          cartItem.item.imageUrl,
+          widget.cartItem.item.imageUrl,
           height: 60,
           width: 60,
         ),
         title: Text(
-          cartItem.item.itemName,
+          widget.cartItem.item.itemName,
           style: const TextStyle(
             fontWeight: FontWeight.w500,
           ),
         ),
         subtitle: Text(
-          utilsServices.priceToCurrency(cartItem.totalPrice()),
+          utilsServices.priceToCurrency(widget.cartItem.totalPrice()),
           style: TextStyle(
             color: CustomColors.customSwatchColor,
             fontWeight: FontWeight.bold,
           ),
         ),
         trailing: QuantityWidget(
-          suffixText: cartItem.item.unit,
-          value: cartItem.quantity,
-          result: (quantity) {},
+          suffixText: widget.cartItem.item.unit,
+          value: widget.cartItem.quantity,
+          isRemovable: true,
+          result: (quantity) {
+            setState(() {
+              widget.cartItem.quantity = quantity;
+              if (quantity == 0) {
+                widget.remove(widget.cartItem);
+              }
+            });
+          },
         ),
       ),
     );
