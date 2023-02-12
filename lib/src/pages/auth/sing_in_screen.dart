@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/pages/auth/sing_up_screen.dart';
 import 'package:greengrocer/src/pages/auth/widget/custom_divider.dart';
-import 'package:greengrocer/src/pages/auth/widget/custom_text_field.dart';
+import 'package:greengrocer/src/widgets/custom_text_field.dart';
 import 'package:greengrocer/src/pages/auth/widget/slide_category_title.dart';
 
 import '../../config/custom_colors.dart';
