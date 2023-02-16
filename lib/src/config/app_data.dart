@@ -48,7 +48,7 @@ ItemModel mango = ItemModel(
 ItemModel papaya = ItemModel(
   itemName: 'Mamão Papaya',
   imageUrl: 'assets/fruits/papaya.png',
-  unit: 'Kg',
+  unit: 'Un',
   price: 6.4,
   description: 'Doce, doce, doce, parece que tem mel',
 );
@@ -99,7 +99,8 @@ List<OrderModel> orders = [
     status: 'pending_payment',
     total: 11.0,
     items: [
-      CartItemModel(item: apple, quantity: 2)
+      CartItemModel(item: apple, quantity: 2),
+      CartItemModel(item: mango, quantity: 2),
     ]
   ),
 ];

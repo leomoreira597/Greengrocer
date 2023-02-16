@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/models/order_model.dart';
+import 'package:greengrocer/src/pages/orders/widgets/quantity_order.dart';
 import 'package:greengrocer/src/services/utils_services.dart';
 
 class OrderTile extends StatelessWidget {
@@ -31,7 +32,32 @@ class OrderTile extends StatelessWidget {
               ),
             ],
           ),
-          children: [],
+          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          children: [
+            SizedBox(
+              height: 150,
+              child: Row(
+                children: [
+                  Expanded(
+                      flex: 3,
+                      child: ListView(
+                        children: order.items.map((orderItem) {
+                          return QuantityOrder(
+                            orderItem: orderItem,
+                            utilsServices: utilsServices,
+                          );
+                        }).toList(),
+                      )),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      color: Colors.blue,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
