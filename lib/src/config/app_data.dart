@@ -2,6 +2,7 @@ import 'package:greengrocer/src/models/item_model.dart';
 import 'package:greengrocer/src/models/user_model.dart';
 
 import '../models/cart_item_model.dart';
+import '../models/order_model.dart';
 
 ItemModel apple = ItemModel(
   itemName: 'Maçã',
@@ -47,7 +48,7 @@ ItemModel mango = ItemModel(
 ItemModel papaya = ItemModel(
   itemName: 'Mamão Papaya',
   imageUrl: 'assets/fruits/papaya.png',
-  unit: 'Kg',
+  unit: 'Un',
   price: 6.4,
   description: 'Doce, doce, doce, parece que tem mel',
 );
@@ -84,3 +85,38 @@ UserModel user = UserModel(
   name: "Leonardo Moreira",
   password: '',
 );
+
+List<OrderModel> orders = [
+  OrderModel(
+    copyAndPaste: "hsoihfoafew9i",
+    createdDateTime: DateTime.parse(
+      '2023-02-12 10:00:10.458',
+    ),
+    overDueDateTime: DateTime.parse(
+      '2023-02-28 10:00:10.458',
+    ) ,
+    id: 'oiosdhfuise',
+    status: 'pending_payment',
+    total: 11.0,
+    items: [
+      CartItemModel(item: apple, quantity: 2),
+      CartItemModel(item: mango, quantity: 2),
+    ]
+  ),
+
+  OrderModel(
+      copyAndPaste: "hsoihfoafew9i",
+      createdDateTime: DateTime.parse(
+        '2023-02-12 10:00:10.458',
+      ),
+      overDueDateTime: DateTime.parse(
+        '2023-02-28 10:00:10.458',
+      ) ,
+      id: 'essa pra comemorar',
+      status: 'delivered',
+      total: 14.0,
+      items: [
+        CartItemModel(item: guava, quantity: 1),
+      ]
+  ),
+];
