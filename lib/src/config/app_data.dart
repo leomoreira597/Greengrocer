@@ -93,7 +93,7 @@ List<OrderModel> orders = [
       '2023-02-12 10:00:10.458',
     ),
     overDueDateTime: DateTime.parse(
-      '2023-02-13 10:00:10.458',
+      '2023-02-28 10:00:10.458',
     ) ,
     id: 'oiosdhfuise',
     status: 'pending_payment',
@@ -110,10 +110,10 @@ List<OrderModel> orders = [
         '2023-02-12 10:00:10.458',
       ),
       overDueDateTime: DateTime.parse(
-        '2023-02-13 10:00:10.458',
+        '2023-02-28 10:00:10.458',
       ) ,
       id: 'essa pra comemorar',
-      status: 'refunded',
+      status: 'delivered',
       total: 14.0,
       items: [
         CartItemModel(item: guava, quantity: 1),

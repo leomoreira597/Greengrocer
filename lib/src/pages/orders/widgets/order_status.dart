@@ -23,17 +23,44 @@ class OrderStatus extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _StatusDot(isActive: true, title: 'Pedido Confirmado',),
+        const _StatusDot(
+          isActive: true,
+          title: 'Pedido Confirmado',
+        ),
         const _CustomDivider(),
-        if(currentStatus == 1) ...[
+        if (currentStatus == 1) ...[
           const _StatusDot(
             isActive: true,
             title: 'Pix Estornado',
             backGroundColor: Colors.orange,
           ),
-        ]
-        else if(isOverdue) ...[
-          const _StatusDot(isActive: true, title: 'Pagamento Pix Vencido', backGroundColor: Colors.red,),
+        ] else if (isOverdue) ...[
+          const _StatusDot(
+            isActive: true,
+            title: 'Pagamento Pix Vencido',
+            backGroundColor: Colors.red,
+          ),
+        ] else ...[
+          _StatusDot(
+            isActive: currentStatus >= 2,
+            title: 'Pagamento',
+          ),
+          const _CustomDivider(),
+          _StatusDot(
+            isActive: currentStatus >= 3,
+            title: 'Preparando',
+          ),
+          const _CustomDivider(),
+          _StatusDot(
+            isActive: currentStatus >= 4,
+            title: 'Envio',
+          ),
+          const _CustomDivider(),
+          _StatusDot(
+            isActive: currentStatus >= 5,
+            title: 'Entregue',
+          ),
+          const _CustomDivider(),
         ]
       ],
     );
@@ -46,7 +73,10 @@ class _CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 3,),
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 3,
+      ),
       height: 10,
       width: 2,
       color: Colors.grey.shade300,
@@ -54,14 +84,16 @@ class _CustomDivider extends StatelessWidget {
   }
 }
 
-
 class _StatusDot extends StatelessWidget {
   final bool isActive;
   final String title;
   final Color? backGroundColor;
 
   const _StatusDot(
-      {required this.isActive, required this.title, this.backGroundColor, Key? key})
+      {required this.isActive,
+      required this.title,
+      this.backGroundColor,
+      Key? key})
       : super(key: key);
 
   @override
@@ -77,20 +109,28 @@ class _StatusDot extends StatelessWidget {
             border: Border.all(
               color: CustomColors.customSwatchColor,
             ),
-            color:
-            isActive ? backGroundColor ?? CustomColors.customSwatchColor : Colors.transparent,
+            color: isActive
+                ? backGroundColor ?? CustomColors.customSwatchColor
+                : Colors.transparent,
           ),
           child: isActive
               ? const Icon(
-            Icons.check,
-            size: 13,
-            color: Colors.white,
-          )
+                  Icons.check,
+                  size: 13,
+                  color: Colors.white,
+                )
               : const SizedBox.shrink(),
         ),
-        const SizedBox(width: 5,),
+        const SizedBox(
+          width: 5,
+        ),
         Expanded(
-          child: Text(title, style: const TextStyle(fontSize: 12,),),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 12,
+            ),
+          ),
         ),
       ],
     );
