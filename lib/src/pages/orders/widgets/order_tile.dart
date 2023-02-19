@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/models/order_model.dart';
+import 'package:greengrocer/src/pages/orders/widgets/order_status.dart';
 import 'package:greengrocer/src/pages/orders/widgets/quantity_order.dart';
 import 'package:greengrocer/src/services/utils_services.dart';
 
@@ -39,19 +40,26 @@ class OrderTile extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                      flex: 3,
-                      child: ListView(
-                        children: order.items.map((orderItem) {
-                          return QuantityOrder(
-                            orderItem: orderItem,
-                            utilsServices: utilsServices,
-                          );
-                        }).toList(),
-                      )),
+                    flex: 3,
+                    child: ListView(
+                      children: order.items.map((orderItem) {
+                        return QuantityOrder(
+                          orderItem: orderItem,
+                          utilsServices: utilsServices,
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  VerticalDivider(
+                    color: Colors.grey.shade300,
+                    thickness: 2,
+                    width: 8,
+                  ),
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      color: Colors.blue,
+                    child: OrderStatus(
+                      status: order.status,
+                      isOverdue: order.overDueDateTime.isBefore(DateTime.now()),
                     ),
                   )
                 ],

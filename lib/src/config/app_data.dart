@@ -103,4 +103,20 @@ List<OrderModel> orders = [
       CartItemModel(item: mango, quantity: 2),
     ]
   ),
+
+  OrderModel(
+      copyAndPaste: "hsoihfoafew9i",
+      createdDateTime: DateTime.parse(
+        '2023-02-12 10:00:10.458',
+      ),
+      overDueDateTime: DateTime.parse(
+        '2023-02-13 10:00:10.458',
+      ) ,
+      id: 'essa pra comemorar',
+      status: 'refunded',
+      total: 14.0,
+      items: [
+        CartItemModel(item: guava, quantity: 1),
+      ]
+  ),
 ];
