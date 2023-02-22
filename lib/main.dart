@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/pages/auth/sing_in_screen.dart';
+import 'package:get/get.dart';
+import 'package:greengrocer/src/consts/consts_app.dart';
+import 'package:greengrocer/src/pages_routes/app_pages.dart';
 
 
 
@@ -13,14 +15,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
-      home: const SingInScreen(),
+      initialRoute: ConstRoutes.splashRoute,
+      getPages: AppPages.pages,
     );
   }
 }

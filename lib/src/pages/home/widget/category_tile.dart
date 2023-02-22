@@ -33,7 +33,7 @@ class CategoryTile extends StatelessWidget {
             category,
             style: TextStyle(
               color:
-                  isSelected ? Colors.white : CustomColors.customContratColor,
+                  isSelected ? Colors.white : CustomColors.customContrastColor,
               fontWeight: FontWeight.bold,
               fontSize: isSelected ? 16 : 14,
             ),

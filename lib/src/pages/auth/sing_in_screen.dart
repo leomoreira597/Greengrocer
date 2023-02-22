@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/pages/auth/sing_up_screen.dart';
+import 'package:get/get.dart';
 import 'package:greengrocer/src/pages/auth/widget/custom_divider.dart';
 import 'package:greengrocer/src/widgets/custom_text_field.dart';
 import 'package:greengrocer/src/pages/auth/widget/slide_category_title.dart';
-
 import '../../config/custom_colors.dart';
 import '../base/base_screen.dart';
+import 'package:greengrocer/src/consts/consts_app.dart';
 
 
 
@@ -43,7 +43,7 @@ class SingInScreen extends StatelessWidget {
                             TextSpan(
                               text: 'grocer',
                               style: TextStyle(
-                                color: CustomColors.customContratColor,
+                                color: CustomColors.customContrastColor,
                               ),
                             ),
                           ]),
@@ -75,13 +75,7 @@ class SingInScreen extends StatelessWidget {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (c) {
-                                return const BaseScreen();
-                              },
-                            ),
-                          );
+                          Get.offNamed(ConstRoutes.baseRoute);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -101,7 +95,7 @@ class SingInScreen extends StatelessWidget {
                         child: Text(
                           'Esqueceu a senha?',
                           style: TextStyle(
-                            color: CustomColors.customContratColor,
+                            color: CustomColors.customContrastColor,
                           ),
                         ),
                       ),
@@ -114,10 +108,7 @@ class SingInScreen extends StatelessWidget {
                       height: 50,
                       child: OutlinedButton(
                         onPressed: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (c) {
-                            return SingUpScreen();
-                          }));
+                          Get.toNamed(ConstRoutes.signUpRoute);
                         },
                         style: OutlinedButton.styleFrom(
                             shape: RoundedRectangleBorder(

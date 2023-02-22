@@ -41,6 +41,8 @@ dependencies:
   badges: ^3.0.2
   intl: ^0.18.0
   qr_flutter: ^4.0.0
+  add_to_cart_animation: ^2.0.3
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
