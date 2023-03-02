@@ -34,7 +34,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
               TextSpan(
                 text: 'grocer',
-                style: TextStyle(color: CustomColors.customContratColor),
+                style: TextStyle(color: CustomColors.customContrastColor),
               ),
             ],
           ),
@@ -49,7 +49,7 @@ class _HomeTabState extends State<HomeTab> {
               onTap: () {},
               child: Badge(
                 badgeStyle: BadgeStyle(
-                  badgeColor: CustomColors.customContratColor,
+                  badgeColor: CustomColors.customContrastColor,
                 ),
                 badgeContent: const Text(
                   '2',
@@ -87,7 +87,7 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                   prefixIcon: Icon(
                     Icons.search,
-                    color: CustomColors.customContratColor,
+                    color: CustomColors.customContrastColor,
                     size: 21,
                   ),
                   border: OutlineInputBorder(
