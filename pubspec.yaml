@@ -43,6 +43,8 @@ dependencies:
   qr_flutter: ^4.0.0
   add_to_cart_animation: ^2.0.3
   get: ^4.6.5
+  dio: ^5.0.0
+  json_annotation: ^4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +61,9 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+
+  json_serializable: ^6.6.1
+  build_runner: ^2.3.3
 flutter:
 
   # The following line ensures that the Material Icons font is
