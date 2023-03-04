@@ -1,5 +1,7 @@
 import 'package:greengrocer/src/models/user_model.dart';
+import 'package:greengrocer/src/pages/auth/result/auth_result.dart';
 import 'package:greengrocer/src/services/http_manager.dart';
+import 'package:greengrocer/src/pages/auth/repository/auth_errors.dart' as authErrors;
 
 import '../../../consts/consts_app.dart';
 import '../../../consts/endpoints.dart';
@@ -7,7 +9,7 @@ import '../../../consts/endpoints.dart';
 class AuthRepository {
   final HttpManager _httpManager = HttpManager();
 
-  Future signIn({required String email, required String password}) async {
+  Future<AuthResult> signIn({required String email, required String password}) async {
     final result = await _httpManager.restRequest(
       url: Endpoints.signIn,
       method: HttpMethods.post,
@@ -17,17 +19,11 @@ class AuthRepository {
       }
     );
     if(result['result'] != null){
-      print('foi');
-
       final user = UserModel.fromJson(result['result']);
-
-      print(user);
+      return AuthResult.success(user);
     }
     else{
-      print('Não foi');
-      print(result['error']);
-      print(email);
-      print(password);
+      return AuthResult.error(authErrors.authErrorsString(result['error']));
     }
   }
 }
