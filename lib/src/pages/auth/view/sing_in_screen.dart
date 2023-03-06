@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:greengrocer/src/consts/consts_app.dart';
 import 'package:greengrocer/src/pages/auth/controller/auth_controller.dart';
 import 'package:greengrocer/src/pages/auth/widget/custom_divider.dart';
 import 'package:greengrocer/src/pages/auth/widget/slide_category_title.dart';
 import 'package:greengrocer/src/widgets/custom_text_field.dart';
 import '../../../config/custom_colors.dart';
+import '../../../constants/consts_app.dart';
+import '../../../services/validators.dart';
 
 class SingInScreen extends StatelessWidget {
   SingInScreen({Key? key}) : super(key: key);
@@ -74,29 +75,14 @@ class SingInScreen extends StatelessWidget {
                         controller: emailController,
                         label: "Email",
                         icon: Icons.email,
-                        validator: (email) {
-                          if (email == null || email.isEmpty) {
-                            return 'Digite seu email';
-                          }
-                          if (!email.isEmail) return 'Digite um E-mail valido';
-
-                          return null;
-                        },
+                        validator: emailValidator,
                       ),
                       CustomTextField(
                         controller: passwordController,
                         label: "Senha",
                         icon: Icons.password,
                         isSecret: true,
-                        validator: (password) {
-                          if (password == null || password.isEmpty) {
-                            return "Digite a sua senha";
-                          }
-                          if (password.length < 7) {
-                            return "Digite uma senha com pelo menos 7 caracteries";
-                          }
-                          return null;
-                        },
+                        validator: passwordValidator,
                       ),
                       Obx(() => SizedBox(
                           height: 50,

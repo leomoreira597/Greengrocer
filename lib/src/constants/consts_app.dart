@@ -13,3 +13,7 @@ abstract class HttpMethods {
   static const String delete = "DELETE";
   static const String patch = "PATCH";
 }
+
+abstract class StorageKeys{
+  static const String token = 'token';
+}

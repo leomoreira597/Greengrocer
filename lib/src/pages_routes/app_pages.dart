@@ -1,9 +1,7 @@
-
 import 'package:get/get.dart';
 import 'package:greengrocer/src/pages/auth/view/sing_up_screen.dart';
 import 'package:greengrocer/src/pages/base/base_screen.dart';
-
-import '../consts/consts_app.dart';
+import '../constants/consts_app.dart';
 import '../pages/auth/view/sing_in_screen.dart';
 import '../pages/splash/splash_screen.dart';
 
